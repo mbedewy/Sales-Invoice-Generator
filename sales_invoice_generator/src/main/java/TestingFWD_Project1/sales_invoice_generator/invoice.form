@@ -9,15 +9,23 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="loadFile">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Load"/>
+                <Property name="actionCommand" type="java.lang.String" value="LoadFile"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="loadFile.addActionListener(this);&#xd;&#xa;"/>
+              </AuxValues>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="saveFile">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save"/>
+                <Property name="actionCommand" type="java.lang.String" value="SaveFile"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="saveFile.addActionListener(this);&#xd;&#xa;"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -278,25 +286,41 @@
     <Component class="javax.swing.JButton" name="createBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Create New Invoice"/>
+        <Property name="actionCommand" type="java.lang.String" value="CreateNewInvoice"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createBtnActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="createBtn.addActionListener(this);&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="deleteBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Delete Invoice"/>
+        <Property name="actionCommand" type="java.lang.String" value="DeleteInvoice"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="deleteBtn.addActionListener(this);&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="saveBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save "/>
+        <Property name="actionCommand" type="java.lang.String" value="SaveInvoice"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="saveBtn.addActionListener(this);&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="cancelBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="actionCommand" type="java.lang.String" value="CancelInvoice"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="cancelBtn.addActionListener(this);&#xd;&#xa;"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="invoiceDate">
       <Events>

@@ -54,4 +54,8 @@ public class InvoiceLine {
         this.header = header;
     }
     
+    public double getLineTotal() {
+        return itemCount * itemPrice;
+    }
+    
 }

@@ -4,16 +4,18 @@
  */
 package TestingFWD_Project1.sales_invoice_generator;
 
-/**
- *
- * @author MH
- */
-public class invoice extends javax.swing.JFrame {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import javax.swing.JFileChooser;
+
+
+public class Invoice extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form invoice
      */
-    public invoice() {
+    public Invoice() {
         initComponents();
     }
 
@@ -31,9 +33,13 @@ public class invoice extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         invoiceTable = new javax.swing.JTable();
         createBtn = new javax.swing.JButton();
+        createBtn.addActionListener(this);
         deleteBtn = new javax.swing.JButton();
+        deleteBtn.addActionListener(this);
         saveBtn = new javax.swing.JButton();
+        saveBtn.addActionListener(this);
         cancelBtn = new javax.swing.JButton();
+        cancelBtn.addActionListener(this);
         invoiceDate = new javax.swing.JTextField();
         customerName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -46,8 +52,10 @@ public class invoice extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        loadFile = new javax.swing.JMenuItem();
+        loadFile.addActionListener(this);
+        saveFile = new javax.swing.JMenuItem();
+        saveFile.addActionListener(this);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,6 +103,7 @@ public class invoice extends javax.swing.JFrame {
         jScrollPane2.setViewportView(invoiceTable);
 
         createBtn.setText("Create New Invoice");
+        createBtn.setActionCommand("CreateNewInvoice");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
@@ -102,10 +111,13 @@ public class invoice extends javax.swing.JFrame {
         });
 
         deleteBtn.setText("Delete Invoice");
+        deleteBtn.setActionCommand("DeleteInvoice");
 
         saveBtn.setText("Save ");
+        saveBtn.setActionCommand("SaveInvoice");
 
         cancelBtn.setText("Cancel");
+        cancelBtn.setActionCommand("CancelInvoice");
 
         invoiceDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,11 +143,13 @@ public class invoice extends javax.swing.JFrame {
 
         fileMenu.setText("File");
 
-        jMenuItem1.setText("Load");
-        fileMenu.add(jMenuItem1);
+        loadFile.setText("Load");
+        loadFile.setActionCommand("LoadFile");
+        fileMenu.add(loadFile);
 
-        jMenuItem2.setText("Save");
-        fileMenu.add(jMenuItem2);
+        saveFile.setText("Save");
+        saveFile.setActionCommand("SaveFile");
+        fileMenu.add(saveFile);
 
         jMenuBar1.add(fileMenu);
 
@@ -264,10 +278,8 @@ public class invoice extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new invoice().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Invoice().setVisible(true);
         });
     }
 
@@ -289,10 +301,58 @@ public class invoice extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JMenuItem loadFile;
     private javax.swing.JButton saveBtn;
+    private javax.swing.JMenuItem saveFile;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        switch (e.getActionCommand()){
+            case "CreateNewInvoice":
+                
+                 break;
+                
+            case "DeleteInvoice":
+                
+                 break;
+                
+            case "LoadFile":
+                
+                 break;
+                
+            case "SaveFile":
+                
+                 break;
+                
+            case "SaveInvoice":
+                
+                 break;
+                
+            case "CancelInvoice":
+              
+                break;
+        }
+    }
+    
+    private loadFile() {
+        JFileChosser fc = new JFileChooser();
+        int result = fc.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            String path = fc.getSelectedFile().getPath();
+            FileInputStream fis = null;
+            try{
+                fis = new FileInputStream(path);
+                int size =fis.available();
+                byte[] b = new byte[size];
+                fis.read(b);
+                invoiceTable.setValueAt(size, ERROR, result);
+            }
+        }
+        
+    }
 }
+
